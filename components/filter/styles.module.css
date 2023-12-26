@@ -1,0 +1,20 @@
+.outer {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.container {
+  display: flex;
+  gap: 10px
+}
+
+.item {
+  padding: 4px 12px;
+}
+
+.highlight {
+  color: #fa8919;
+  background: #fbf5ee;
+  border-radius: 14px;
+}

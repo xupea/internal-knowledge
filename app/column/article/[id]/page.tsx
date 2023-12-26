@@ -1,40 +1,32 @@
 import Content from "@/components/content/Content";
 import ArticleList from "@/components/sidebar/Sidebar";
 import styles from "./styles.module.css";
+import { customFetch } from "@/utils/api";
+import Title from "@/components/title/Title";
 
 async function getCourseData(id: string) {
-  const res = await fetch(`http://10.0.0.135:8080/courses/${id}`);
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+  return customFetch(`/courses/${id}`);
 }
 
 async function getArticleData(id: string) {
-  const res = await fetch(`http://10.0.0.135:8080/articles/${id}`);
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
+  return customFetch(`/articles/${id}`);
+}
 
-  return res.json();
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const courseData = await getCourseData(params.id);
+  return { title: courseData.title}
 }
 
 export default async function Page({ params }: { params: { id: string } }) {
   const courseData = await getCourseData(params.id);
   const articleData = await getArticleData(params.id);
-  console.log(articleData);
+  console.log(articleData)
 
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <ArticleList content={courseData.content} />
+        <Title title={courseData.title} />
+        <ArticleList content={courseData.content} current={params.id} />
       </div>
       <div className={styles.right}>
         <Content url={articleData.path} />

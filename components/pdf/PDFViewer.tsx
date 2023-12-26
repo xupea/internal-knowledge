@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
@@ -19,7 +19,7 @@ export default function PDFViewer({ url }: { url: string }) {
         }}
       >
         <Viewer
-          fileUrl="http://localhost:3000/sample.pdf"
+          fileUrl={`http://10.0.0.100:3000${url}`}
           plugins={[defaultLayoutPluginInstance]}
         />
       </div>

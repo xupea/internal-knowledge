@@ -1,0 +1,12 @@
+.title {
+  font-size: 24px;
+  line-height: 31px;
+  color: black;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  padding: 10px;
+}

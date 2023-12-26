@@ -1,18 +1,28 @@
+import Link from "next/link";
+import cx from "classnames";
+import styles from "./styles.module.css";
+
 interface Article {
   id: number;
   title: string;
   path: string;
 }
 
-// replace .pdf or .ts in a string
-const replace = (str: string) => str.replace(/\.[^.]+$/, "");
-
-export default function ArticleList(props: { content: Article[] }) {
+export default function ArticleList(props: {
+  content: Article[];
+  current: string;
+}) {
   const articles = props.content;
+  const current = props.current;
   const listItems = articles.map((article) => (
-    <li key={article.id}>
-      <a href={`/column/article/${article.id}`}>{replace(article.title)}</a>
+    <li
+      className={cx(styles.item, {
+        [styles.highlight]: +current === article.id,
+      })}
+      key={article.id}
+    >
+      <Link href={`/column/article/${article.id}`}>{article.title}</Link>
     </li>
   ));
-  return <ul>{listItems}</ul>;
+  return <ul className={styles.list}>{listItems}</ul>;
 }
