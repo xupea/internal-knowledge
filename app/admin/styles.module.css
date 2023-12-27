@@ -1,0 +1,10 @@
+.container {
+  background: white;
+  color: rgb(64, 64, 64);
+  padding: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}

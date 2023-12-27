@@ -17,7 +17,7 @@ export default function Card({ course }: { course: any }) {
         }}
       >
         <Image
-          src={"http://10.0.0.100:8080/default.webp"}
+          src={"http://localhost:8080/default.webp"}
           alt=""
           width={102}
           height={134}
