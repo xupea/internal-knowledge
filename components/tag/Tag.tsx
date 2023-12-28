@@ -13,7 +13,6 @@ export default function Tag({ courses }: { courses: any }) {
   };
 
   const content = courses.map((course: any) => {
-    console.log(course.direction)
     return (
       <div key={course.id} className={styles.container}>
         <Card course={course} />

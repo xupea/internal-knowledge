@@ -19,7 +19,7 @@ export default function PDFViewer({ url }: { url: string }) {
         }}
       >
         <Viewer
-          fileUrl={`http://10.0.0.151:8080${url}`}
+          fileUrl={`http://${document.location.hostname}:8080${url}`}
           plugins={[defaultLayoutPluginInstance]}
         />
       </div>

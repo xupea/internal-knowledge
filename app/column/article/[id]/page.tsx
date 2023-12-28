@@ -20,7 +20,6 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 export default async function Page({ params }: { params: { id: string } }) {
   const courseData = await getCourseData(params.id);
   const articleData = await getArticleData(params.id);
-  console.log(articleData)
 
   return (
     <div className={styles.container}>
