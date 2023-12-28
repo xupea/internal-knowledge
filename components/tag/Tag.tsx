@@ -4,11 +4,11 @@ import styles from "./styles.module.css";
 import { updateCourse } from "../../utils/api";
 
 export default function Tag({ courses }: { courses: any }) {
-  const handleCategoryChange = async (value, id) => {
+  const handleCategoryChange = async (value: string, id: number) => {
     await updateCourse(id, "direction", value);
   };
 
-  const handleVisibleChange = async (value, id) => {
+  const handleVisibleChange = async (value: boolean, id: number) => {
     await updateCourse(id, "hidden", value);
   };
 

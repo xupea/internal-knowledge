@@ -4,7 +4,7 @@ import Filter from "@/components/filter/Filter";
 import Card from "@/components/card/Card";
 
 async function getCourseData(id: string) {
-  return customFetch(`/courses`);
+  return customFetch(`/courses/filter/${id}`);
 }
 
 export default async function Page({ params }: { params: { did: string } }) {

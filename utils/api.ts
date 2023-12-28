@@ -10,7 +10,11 @@ export const customFetch = async (api: string) => {
   return res.json();
 };
 
-export const updateCourse = async (id, field, value) => {
+export const updateCourse = async (
+  id: number,
+  field: string,
+  value: string | boolean
+) => {
   const api = `/courses/${id}`;
   const res = await fetch(`${baseApiURL}${api}`, {
     method: "POST",
